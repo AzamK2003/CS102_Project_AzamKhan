@@ -123,3 +123,78 @@ void cpu_place_ships()
     }
   }
 }
+
+/* Buggy code for a truly random ship placement
+
+#include "computer_ships.h"
+
+int orientation()
+{
+num = rand()%2;
+return num;
+} 
+  
+void Cplace_ships()
+{
+  shipLength[0] = 5;
+  shipLength[1] = 4;
+  shipLength[2] = 3;
+  shipLength[3] = 3;
+  shipLength[4] = 2;
+  for(int i = 0; i < 5;i++)
+  {
+    max = 10-shipLength[i];
+    orientation();
+    if(orientation() == 0)
+    {
+      computer_column = rand() % max;
+      computer_row = rand() % 10;
+      if(Cput_horizontal_ship(shipLength[i], computer_row1, computer_column1) == 13)
+        Cplace_ships();
+      else
+        Cput_horizontal_ship(shipLength[i], computer_row1, computer_column1);
+    }
+    else 
+    {
+      computer_column1 = rand() % 10;
+      computer_row1 = rand() % max;
+      if(Cput_vertical_ship(shipLength[i], computer_row1, computer_column1) == 13)
+        Cplace_ships();
+      else
+        Cput_vertical_ship(shipLength[i], computer_row1, computer_column1);
+    }
+  }
+}
+
+int Cput_horizontal_ship(int length, int rowVal, int colVal)
+{
+  for(int i = 0; i < length; i++)
+  {
+    if(computer_logic_board[rowVal][colVal + i] == 'B'){
+      conflict = CONFLICT;
+      }
+      else
+      {
+        computer_logic_board[rowVal + i][colVal] = 'B';
+        conflict = 0;
+      }
+  }
+  return conflict;
+}
+
+int Cput_vertical_ship(int length, int rowVal, int colVal)
+{
+  for(int i = 0; i < length; i++)
+  {
+    if(computer_logic_board[rowVal + i][colVal] == 'B')
+      conflict = CONFLICT;
+    else
+      {
+      computer_logic_board[rowVal + i][colVal] = 'B';
+      conflict = 0;
+      }
+  }
+  return conflict;
+}
+
+*/
